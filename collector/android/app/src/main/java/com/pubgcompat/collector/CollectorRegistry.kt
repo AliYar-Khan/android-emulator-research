@@ -1,16 +1,21 @@
 package com.pubgcompat.collector
 
+import com.pubgcompat.collector.collectors.AbiCollector
+import com.pubgcompat.collector.collectors.BuildCollector
+import com.pubgcompat.collector.collectors.CpuCollector
+import com.pubgcompat.collector.collectors.KernelCollector
+
 /**
- * Central registry of collectors, in deterministic document order.
- * Collectors are added here as they are implemented.
+ * Central registry of collectors, in deterministic document order matching
+ * schema/fingerprint.schema.json.
  */
 object CollectorRegistry {
 
-    private val collectors = LinkedHashMap<String, FingerprintCollector>()
-
-    fun register(sectionKey: String, collector: FingerprintCollector) {
-        collectors[sectionKey] = collector
-    }
-
-    fun all(): LinkedHashMap<String, FingerprintCollector> = LinkedHashMap(collectors)
+    fun all(): LinkedHashMap<String, FingerprintCollector> =
+        linkedMapOf(
+            "build" to BuildCollector(),
+            "abi" to AbiCollector(),
+            "cpu" to CpuCollector(),
+            "kernel" to KernelCollector(),
+        )
 }

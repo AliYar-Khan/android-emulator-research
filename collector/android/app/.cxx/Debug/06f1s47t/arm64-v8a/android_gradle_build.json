@@ -1,0 +1,38 @@
+{
+  "buildFiles": [
+    "/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/home/aliyarkhan/Android/Sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/.cxx/Debug/06f1s47t/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/home/aliyarkhan/Android/Sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/.cxx/Debug/06f1s47t/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "vulkan_shim::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "vulkan_shim",
+      "output": "/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/build/intermediates/cxx/Debug/06f1s47t/obj/arm64-v8a/libvulkan_shim.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/home/aliyarkhan/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/home/aliyarkhan/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

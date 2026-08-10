@@ -1,3 +1,5 @@
-Copyright (c) 2026 pubg-compat-research contributors
-
-Licensed under the MIT License.
+/*
+ * Copyright (c) 2026 pubg-compat-research contributors
+ *
+ * Licensed under the MIT License.
+ */

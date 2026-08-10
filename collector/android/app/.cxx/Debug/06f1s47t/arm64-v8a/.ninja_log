@@ -1,0 +1,3 @@
+# ninja log v5
+0	2460	1786348028128364609	CMakeFiles/vulkan_shim.dir/vulkan_shim.cpp.o	852ddd583d69a36b
+2471	2761	1786348028453367095	/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/build/intermediates/cxx/Debug/06f1s47t/obj/arm64-v8a/libvulkan_shim.so	939777a4b9e068d9

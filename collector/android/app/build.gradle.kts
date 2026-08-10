@@ -8,6 +8,7 @@ plugins {
 android {
     namespace = "com.pubgcompat.collector"
     compileSdk = 35
+    ndkVersion = "28.2.13676358"
 
     defaultConfig {
         applicationId = "com.pubgcompat.collector"
@@ -15,6 +16,18 @@ android {
         targetSdk = 35
         versionCode = 1
         versionName = "0.1.0"
+
+        externalNativeBuild {
+            cmake {
+                cppFlags += "-std=c++17"
+            }
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path = file("src/main/cpp/CMakeLists.txt")
+        }
     }
 
     buildTypes {

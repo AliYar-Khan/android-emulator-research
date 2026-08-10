@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/.cxx/Debug/06f1s47t/x86",
+  "command": "/home/aliyarkhan/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/bin/clang++ --target=i686-none-linux-android26 --sysroot=/home/aliyarkhan/Android/Sdk/ndk/28.2.13676358/toolchains/llvm/prebuilt/linux-x86_64/sysroot -Dvulkan_shim_EXPORTS -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -std=c++17 -fno-limit-debug-info  -fPIC -o CMakeFiles/vulkan_shim.dir/vulkan_shim.cpp.o -c /home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/src/main/cpp/vulkan_shim.cpp",
+  "file": "/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/src/main/cpp/vulkan_shim.cpp"
+}
+]

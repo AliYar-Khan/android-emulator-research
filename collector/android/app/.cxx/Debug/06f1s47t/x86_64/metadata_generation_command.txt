@@ -1,0 +1,19 @@
+                        -H/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/src/main/cpp
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_SYSTEM_VERSION=26
+-DANDROID_PLATFORM=android-26
+-DANDROID_ABI=x86_64
+-DCMAKE_ANDROID_ARCH_ABI=x86_64
+-DANDROID_NDK=/home/aliyarkhan/Android/Sdk/ndk/28.2.13676358
+-DCMAKE_ANDROID_NDK=/home/aliyarkhan/Android/Sdk/ndk/28.2.13676358
+-DCMAKE_TOOLCHAIN_FILE=/home/aliyarkhan/Android/Sdk/ndk/28.2.13676358/build/cmake/android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=/home/aliyarkhan/Android/Sdk/cmake/3.22.1/bin/ninja
+-DCMAKE_CXX_FLAGS=-std=c++17
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/build/intermediates/cxx/Debug/06f1s47t/obj/x86_64
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/build/intermediates/cxx/Debug/06f1s47t/obj/x86_64
+-DCMAKE_BUILD_TYPE=Debug
+-B/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/.cxx/Debug/06f1s47t/x86_64
+-GNinja
+                        Build command args: []
+                        Version: 2

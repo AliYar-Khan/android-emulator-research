@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/example/pubg-compat-research/schema/fingerprint.schema.json",
+  "title": "PUBG Compatibility Research fingerprint",
+  "description": "Normalized, machine-readable measurements of what an Android application can observe in its execution environment. See docs/architecture.md. Values are observations only; absence of a capability is recorded as 'unavailable' or 'unknown', never as proof of anything.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "collector_version",
+    "timestamp",
+    "environment",
+    "fingerprint_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "1.0"
+    },
+    "collector_version": {
+      "type": "string"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Collection start time (UTC ISO-8601). Volatile; excluded from the fingerprint hash."
+    },
+    "environment": {
+      "type": "object",
+      "required": ["label"],
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Operator-supplied environment label, e.g. 'physical', 'waydroid', 'kvm', 'aosp', 'commercial'."
+        }
+      },
+      "additionalProperties": true
+    },
+    "fingerprint_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "SHA-256 over canonicalized normalized JSON with volatile timestamps and this field removed. Contract: docs/architecture.md#canonicalization."
+    },
+    "collector_status_summary": {
+      "type": "object",
+      "description": "Section name -> status of the last collection run.",
+      "additionalProperties": {
+        "enum": ["available", "unavailable", "permission_denied", "collection_error", "unknown"]
+      }
+    },
+    "build": { "$ref": "#/$defs/collector_section" },
+    "abi": { "$ref": "#/$defs/collector_section" },
+    "cpu": { "$ref": "#/$defs/collector_section" },
+    "gpu": { "$ref": "#/$defs/collector_section" },
+    "vulkan": { "$ref": "#/$defs/collector_section" },
+    "kernel": { "$ref": "#/$defs/collector_section" },
+    "proc": { "$ref": "#/$defs/collector_section" },
+    "sys": { "$ref": "#/$defs/collector_section" },
+    "hardware_features": { "$ref": "#/$defs/collector_section" },
+    "sensors": { "$ref": "#/$defs/collector_section" },
+    "display": { "$ref": "#/$defs/collector_section" },
+    "network": { "$ref": "#/$defs/collector_section" },
+    "telephony": { "$ref": "#/$defs/collector_section" },
+    "storage": { "$ref": "#/$defs/collector_section" },
+    "security": { "$ref": "#/$defs/collector_section" },
+    "environment_signals": { "$ref": "#/$defs/collector_section" }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "collector_section": {
+      "type": "object",
+      "required": ["collector", "timestamp", "status", "errors", "warnings", "data"],
+      "properties": {
+        "collector": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "status": {
+          "enum": ["available", "unavailable", "permission_denied", "collection_error", "unknown"]
+        },
+        "errors": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "raw": {
+              "description": "Raw observations exactly as exposed by the environment."
+            },
+            "normalized": {
+              "description": "Deterministic normalization of raw. Never destroys raw."
+            }
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

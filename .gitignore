@@ -1,0 +1,31 @@
+# Android / Gradle
+collector/android/.gradle/
+collector/android/build/
+collector/android/app/build/
+collector/android/local.properties
+collector/android/.kotlin/
+*.apk
+*.aab
+*.keystore
+*.jks
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Captured fingerprints: only committed example fixtures are tracked
+datasets/fingerprints/*
+!datasets/fingerprints/.gitkeep
+datasets/examples/*.json.tmp
+
+# Editors / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# Reports
+analysis/*.md.report

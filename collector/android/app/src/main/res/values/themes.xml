@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.PubgCompatCollector" parent="Theme.Material3.DayNight">
+        <item name="colorPrimary">@color/brand_primary</item>
+    </style>
+    <color name="brand_primary">#1A73E8</color>
+</resources>

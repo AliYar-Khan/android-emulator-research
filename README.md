@@ -47,8 +47,20 @@ tests/               Python test suite
 
 ## Status
 
-Milestone 1 (scaffolding) in progress. See `docs/architecture.md` for the
-design and `docs/methodology.md` for the research method.
+Progress per milestone:
 
-Full documentation is completed in the final milestone. See
-`collector/android/README.md` for Android-specific build instructions.
+| Milestone | Scope | Status |
+|---|---|---|
+| M0 | Repo hygiene (untrack `.cxx`), Python packaging (`pyproject.toml`) | **done** |
+| M1 | Remaining 9 collectors → 16/16 schema sections | **done** |
+| M2 | Host-side analysis: `validate.py`, `normalize.py`, `diff.py`, `report.py` + Python test suite | **done** |
+| M3 | Capture tooling: `scripts/`, `tools/`, committed example fixtures | **done** |
+| M4 | Final documentation (`docs/*`) | **done** |
+
+Field captures (physical device, Waydroid, KVM, AOSP / commercial emulators)
+are run by the operator using `scripts/collect.sh` (see `docs/methodology.md`
+and the recording template in `docs/observations.md`).
+
+See `docs/architecture.md` for the design and `docs/methodology.md` for the
+research method. See `collector/android/README.md` for Android-specific build
+instructions.

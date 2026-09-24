@@ -1,0 +1,282 @@
+{
+  "schema_version": "1.0",
+  "collector_version": "0.1.0",
+  "timestamp": "2026-01-15T10:00:00Z",
+  "environment": {
+    "label": "physical"
+  },
+  "build": {
+    "collector": "build",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {
+        "manufacturer": "Google",
+        "brand": "google",
+        "model": "Pixel 7",
+        "device": "panther",
+        "product": "panther",
+        "hardware": "panther",
+        "board": "gs201",
+        "android_version": "14",
+        "sdk_int": 34,
+        "security_patch_level": "2025-11-05",
+        "type": "user"
+      }
+    }
+  },
+  "abi": {
+    "collector": "abi",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {
+        "supported_abis": [
+          "arm64-v8a",
+          "armeabi-v7a",
+          "armeabi"
+        ],
+        "supported_64_bit_abis": [
+          "arm64-v8a"
+        ],
+        "supported_32_bit_abis": [
+          "armeabi-v7a",
+          "armeabi"
+        ],
+        "runtime_os_arch": "aarch64"
+      }
+    }
+  },
+  "cpu": {
+    "collector": "cpu",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {
+        "cores": 8,
+        "model_name": "ARMv8 Processor rev 1 (aarch64)",
+        "features": [
+          "asimd",
+          "aes",
+          "pmull",
+          "sha1",
+          "sha2"
+        ]
+      }
+    }
+  },
+  "gpu": {
+    "collector": "gpu",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {
+        "vendor": "Google",
+        "renderer": "Mali-G710",
+        "version": "OpenGL ES 3.2"
+      }
+    }
+  },
+  "vulkan": {
+    "collector": "vulkan",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {
+        "version": "1.3.0"
+      }
+    }
+  },
+  "kernel": {
+    "collector": "kernel",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {
+        "kernel_release": "5.15.148-android14-11-g2b4",
+        "kernel_version": "5.15.148"
+      }
+    }
+  },
+  "proc": {
+    "collector": "proc",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {}
+    }
+  },
+  "sys": {
+    "collector": "sys",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {}
+    }
+  },
+  "hardware_features": {
+    "collector": "hardware_features",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {}
+    }
+  },
+  "sensors": {
+    "collector": "sensors",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {
+        "count": 15,
+        "types": [
+          "accelerometer",
+          "gyroscope",
+          "proximity"
+        ]
+      }
+    }
+  },
+  "display": {
+    "collector": "display",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {}
+    }
+  },
+  "network": {
+    "collector": "network",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {}
+    }
+  },
+  "telephony": {
+    "collector": "telephony",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {
+        "sim_state": "ready",
+        "phone_type": "gsm",
+        "network_type": "lte"
+      }
+    }
+  },
+  "storage": {
+    "collector": "storage",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {}
+    }
+  },
+  "security": {
+    "collector": "security",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {},
+      "normalized": {
+        "selinux_mode": "enforcing",
+        "debuggable": false,
+        "adb_enabled": true
+      }
+    }
+  },
+  "environment_signals": {
+    "collector": "environment_signals",
+    "timestamp": "2026-01-15T10:00:00Z",
+    "status": "available",
+    "errors": [],
+    "warnings": [],
+    "data": {
+      "raw": {
+        "cmdline": "console=ttyMSM0,115200n8 androidboot.hardware=qcom"
+      },
+      "normalized": {
+        "markers": {
+          "qemu": false,
+          "ranchu": false,
+          "goldfish": false,
+          "houdini": false,
+          "waydroid": false,
+          "anbox": false,
+          "redroid": false,
+          "virtualbox": false,
+          "vbox": false,
+          "genymotion": false,
+          "lxc": false,
+          "cuttlefish": false
+        },
+        "cgroup_readable": true,
+        "cmdline_readable": true
+      }
+    }
+  },
+  "collector_status_summary": {
+    "build": "available",
+    "abi": "available",
+    "cpu": "available",
+    "gpu": "available",
+    "vulkan": "available",
+    "kernel": "available",
+    "proc": "available",
+    "sys": "available",
+    "hardware_features": "available",
+    "sensors": "available",
+    "display": "available",
+    "network": "available",
+    "telephony": "available",
+    "storage": "available",
+    "security": "available",
+    "environment_signals": "available"
+  },
+  "fingerprint_sha256": "373c33b7eaca8c6605df533c3f757bec1d6b95777a784684bbb44856672a20d8"
+}

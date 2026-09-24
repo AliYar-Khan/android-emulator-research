@@ -1,1 +1,0 @@
-/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/src/main/cpp/CMakeLists.txt

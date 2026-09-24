@@ -2,6 +2,7 @@
 collector/android/.gradle/
 collector/android/build/
 collector/android/app/build/
+collector/android/app/.cxx/
 collector/android/local.properties
 collector/android/.kotlin/
 *.apk
@@ -15,6 +16,9 @@ __pycache__/
 .pytest_cache/
 .venv/
 venv/
+*.egg-info/
+build/
+dist/
 
 # Captured fingerprints: only committed example fixtures are tracked
 datasets/fingerprints/*

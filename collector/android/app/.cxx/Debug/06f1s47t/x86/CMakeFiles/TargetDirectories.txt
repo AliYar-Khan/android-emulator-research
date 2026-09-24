@@ -1,3 +1,0 @@
-/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/.cxx/Debug/06f1s47t/x86/CMakeFiles/vulkan_shim.dir
-/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/.cxx/Debug/06f1s47t/x86/CMakeFiles/edit_cache.dir
-/home/aliyarkhan/Documents/pubg-compat-research/collector/android/app/.cxx/Debug/06f1s47t/x86/CMakeFiles/rebuild_cache.dir

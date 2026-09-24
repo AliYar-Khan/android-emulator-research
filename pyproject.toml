@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pubg-compat-analysis"
+version = "0.1.0"
+description = "Host-side analysis tooling for pubg-compat-research (validation, canonicalization, diffing, reporting)."
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+dependencies = [
+    "jsonschema[format]>=4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+]
+
+[tool.setuptools]
+packages = ["analysis"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

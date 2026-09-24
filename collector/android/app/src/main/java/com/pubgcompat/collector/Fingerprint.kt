@@ -68,7 +68,7 @@ object Json {
 
   /**
    * Canonical numeric rendering used everywhere a float would otherwise appear: 9 significant
-   * digits, matching Python's "%g" formatting so the on-device canonical hash agrees with the
+   * digits, matching Python's "%.9g" formatting so the on-device canonical hash agrees with the
    * host-side hash. Integers are left untouched; non-finite values never enter fingerprint data.
    */
   private fun finiteToString(v: Double): String =

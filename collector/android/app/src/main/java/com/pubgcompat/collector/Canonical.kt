@@ -22,7 +22,7 @@ import kotlinx.serialization.json.JsonPrimitive
  * 3. Strings use JSON escaping with `\b \f \n \r \t` shortcuts and `\uXXXX` for other control
  *    characters; no escaping of forward slashes; non-ASCII characters are emitted verbatim (UTF-8).
  * 4. Numbers are emitted as-is. Fingerprint data only ever contains integers, strings, booleans and
- *    null in canonical positions (floats are rendered via [Json.value] as "%g" strings on the
+ *    null in canonical positions (floats are rendered via [Json.value] as "%.9g" strings on the
  *    device).
  * 5. Arrays preserve order and contain comma-separated canonical elements.
  */

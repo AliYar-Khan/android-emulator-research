@@ -10,7 +10,8 @@ Contract:
    non-ASCII characters are emitted verbatim (UTF-8).
 4. Numbers are emitted as-is. Fingerprint data only ever contains integers,
    strings, booleans and null in canonical positions (floats are rendered as
-   ``%g`` strings on the device).
+   ``%.9g`` strings on the device). If a raw float does appear (hand-written
+   fixture), it is rendered with ``%.9g`` to mirror the device's formatter.
 5. Arrays preserve order.
 """
 
@@ -60,8 +61,9 @@ def _write(value: Any, out: list[str]) -> None:
         out.append(str(value))
     elif isinstance(value, float):
         # Fingerprint data should never contain floats (see contract).
-        # If one arrives, render it like Java's %g so both sides agree.
-        out.append("%g" % value)
+        # If one arrives, render it like the device's Json.value (%.9g) so
+        # both sides agree.
+        out.append("%.9g" % value)
     elif isinstance(value, (list, tuple)):
         out.append("[")
         for i, item in enumerate(value):

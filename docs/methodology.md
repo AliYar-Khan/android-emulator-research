@@ -19,7 +19,9 @@ Target environments (one capture each, same collector build):
 | `waydroid` | Waydroid (container) | Host kernel shared with Android userspace. |
 | `kvm` | Android-x86 / KVM | Full VM; goldfish/ranchu markers may appear. |
 | `aosp` | AOSP Android Emulator | `qemu`/`ranchu`/`goldfish` markers expected. |
-| `commercial` | Commercial emulator | Record product + version. |
+| `gameloop` | GameLoop (Tencent) | Windows host; AOW/qemu engine, x86 + houdini. |
+| `ldplayer` | LDPlayer | Windows host; x86_64, adb over LAN. |
+| `commercial` | Any other commercial emulator | Record product + version. |
 
 Where available, prefer two environments that differ in a single dimension
 (e.g. AOSP emulator images with/without GPU translation) over comparing
@@ -50,6 +52,46 @@ unrelated builds.
 
    → per-section validation, structural diff (volatile fields excluded),
    then a Markdown report across all given files (add `-o report.md`).
+
+## Fingerprinting Windows Android emulators (GameLoop, LDPlayer)
+
+Both are ordinary Android devices reachable over adb — the collector runs
+*inside* the emulator. The APK requires `minSdk = 25` (Android 7.1.2),
+which matches GameLoop's common engine and all current LDPlayer versions.
+
+**Option A — network adb from this machine (preferred)**
+
+1. On the Windows host, expose the emulator's adb over the LAN:
+   * **LDPlayer**: Settings → Other → enable *ADB over LAN*. Instances
+     listen on ports 5555, 5557, 5559, … (confirm with
+     `netstat -an | findstr LISTENING | findstr 555`).
+   * **GameLoop**: the engine bundles its own adb (install dir,
+     e.g. `AOW_64\adb.exe`); it typically listens on 127.0.0.1:5555 —
+     rebind/firewall must allow the LAN interface for this option.
+2. From this machine: `adb connect <windows-ip>:5555`
+3. Capture:
+
+   ```sh
+   ANDROID_SERIAL=<windows-ip>:5555 scripts/collect.sh gameloop
+   ```
+
+**Option B — run the script on the Windows machine**
+
+Install platform-tools, JDK 17, and Python, then from Git Bash in the repo
+root: `./scripts/collect.sh gameloop`. Set `ANDROID_SERIAL` when several
+emulator instances are attached.
+
+**Caveats**
+
+* One capture per product **and** version; keep the label as the product
+  (`gameloop`, `ldplayer`) and record the emulator version + Android
+  version in the `environment:` line of the observations block.
+* x86 images with ARM translation: expect `abi` to report `x86`/`x86_64`
+  and `environment_signals.markers` to include `houdini`; that is normal,
+  not a mis-collection.
+* If a capture fails with `INSTALL_FAILED_OLDER_SDK`, the engine is older
+  than Android 7.1 — note it in observations; do not silently downgrade the
+  collector.
 
 ## Interpreting results
 

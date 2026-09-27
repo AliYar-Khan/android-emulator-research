@@ -42,8 +42,18 @@ while [[ $# -gt 0 ]]; do
 done
 
 [[ -n "$LABEL" ]] || usage
+# Labels become filenames: restrict to a safe charset.
+[[ "$LABEL" =~ ^[A-Za-z0-9._-]+$ ]] || {
+  echo "error: label must match [A-Za-z0-9._-]+ (got: $LABEL)" >&2; exit 2; }
 command -v "$ADB" >/dev/null || { echo "error: adb not found (set \$ADB)" >&2; exit 2; }
-"$ADB" get-state >/dev/null 2>&1 || { echo "error: no device connected" >&2; exit 2; }
+if ! "$ADB" get-state >/dev/null 2>&1; then
+  if [[ "$("$ADB" devices | awk 'NR>1 && $2=="device"' | wc -l)" -gt 1 ]]; then
+    echo "error: multiple devices attached; set ANDROID_SERIAL (e.g. <host>:<port> for network adb)" >&2
+  else
+    echo "error: no device connected (adb connect <host>:<port> first for network devices)" >&2
+  fi
+  exit 2
+fi
 
 need_build=0
 if [[ "$MODE" == "build" ]]; then
@@ -111,4 +121,6 @@ printf '%s\n' "$content" > "$OUTPUT"
 echo "Wrote $OUTPUT"
 
 echo "Validating..."
-(cd "$ROOT" && python3 -m analysis.validate "$OUTPUT")
+PYTHON="${PYTHON:-python3}"
+command -v "$PYTHON" >/dev/null 2>&1 || PYTHON=python
+(cd "$ROOT" && "$PYTHON" -m analysis.validate "$OUTPUT")

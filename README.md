@@ -59,7 +59,9 @@ Progress per milestone:
 
 Field captures (physical device, Waydroid, KVM, AOSP / commercial emulators)
 are run by the operator using `scripts/collect.sh` (see `docs/methodology.md`
-and the recording template in `docs/observations.md`).
+and the recording template in `docs/observations.md`). For the Windows
+emulators GameLoop and LDPlayer, follow the step-by-step guide:
+[`docs/windows-emulators.md`](docs/windows-emulators.md).
 
 See `docs/architecture.md` for the design and `docs/methodology.md` for the
 research method. See `collector/android/README.md` for Android-specific build

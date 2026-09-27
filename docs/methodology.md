@@ -58,6 +58,8 @@ unrelated builds.
 Both are ordinary Android devices reachable over adb — the collector runs
 *inside* the emulator. The APK requires `minSdk = 25` (Android 7.1.2),
 which matches GameLoop's common engine and all current LDPlayer versions.
+Full Windows-side walkthrough (prerequisites, adb conflicts,
+troubleshooting): [`docs/windows-emulators.md`](windows-emulators.md).
 
 **Option A — network adb from this machine (preferred)**
 

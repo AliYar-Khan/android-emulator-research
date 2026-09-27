@@ -6,7 +6,6 @@
 package com.pubgcompat.collector.util
 
 import com.pubgcompat.collector.parser.GetPropParser
-import java.util.concurrent.TimeUnit
 
 /**
  * Read-only access to system properties via the `getprop` binary.
@@ -32,9 +31,11 @@ object SystemPropertiesReader {
         }
       }
       reader.start()
-      val finished = process.waitFor(TIMEOUT_MS, TimeUnit.MILLISECONDS)
+      // Process.waitFor(timeout)/destroyForcibly are API 26+; poll exitValue instead
+      // so the reader also works on minSdk 25 (Android 7.1 emulators).
+      val finished = awaitExit(process, TIMEOUT_MS)
       if (!finished) {
-        process.destroyForcibly()
+        process.destroy()
         reader.join(TIMEOUT_MS)
         return emptyMap()
       }
@@ -52,5 +53,18 @@ object SystemPropertiesReader {
       out[key] = props[key]
     }
     return out
+  }
+
+  private fun awaitExit(process: Process, timeoutMs: Long): Boolean {
+    val deadline = System.currentTimeMillis() + timeoutMs
+    while (System.currentTimeMillis() < deadline) {
+      try {
+        process.exitValue()
+        return true
+      } catch (_: IllegalThreadStateException) {
+        Thread.sleep(25L)
+      }
+    }
+    return false
   }
 }

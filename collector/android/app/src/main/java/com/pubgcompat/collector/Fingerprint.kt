@@ -6,7 +6,6 @@
 package com.pubgcompat.collector
 
 import android.content.Context
-import java.time.Instant
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.JsonObject
@@ -79,4 +78,10 @@ object Json {
       }
 }
 
-fun nowIso(): String = Instant.now().toString()
+fun nowIso(): String =
+    // java.time.Instant would require API 26 (or core desugaring); SimpleDateFormat
+    // is API 1 and yields RFC 3339 UTC with millisecond precision.
+    java.text
+        .SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", java.util.Locale.US)
+        .apply { timeZone = java.util.TimeZone.getTimeZone("UTC") }
+        .format(java.util.Date())

@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.pubgcompat.collector"
-        minSdk = 26
+        minSdk = 25
         targetSdk = 35
         versionCode = 1
         versionName = "0.1.0"
